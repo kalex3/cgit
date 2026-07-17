@@ -1,0 +1,17 @@
+services:
+  cgit:
+    # build: .
+    # image: cgit:latest
+    image: ghcr.io/kalex3/cgit:latest
+    container_name: cgit
+    restart: unless-stopped
+    ports:
+      - 8080:80
+    volumes:
+      - ./git:/srv/git:ro
+      - ./about.md:/usr/share/webapps/cgit/about.md:ro
+      # - ./cgitrc:/etc/cgitrc:ro
+      # - ./lighttpd.conf:/etc/lighttpd/lighttpd.conf:ro
+      # - ./style.css:/usr/share/webapps/cgit/cgit.css:ro
+      # - ./logo.png:/usr/share/webapps/cgit/cgit.png:ro
+      # - ./favicon.ico:/usr/share/webapps/cgit/favicon.ico:ro
